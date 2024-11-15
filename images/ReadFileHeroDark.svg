@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="480" viewBox="0 0 1050 480">
+    <rect width="1050" height="480" rx="16" fill="#519FFA" opacity="10%"/>
+    <!-- Centered outer avocado shape -->
+    <g transform="translate(308, 235)">
+        <!-- Logo circles -->
+        <circle cx="0" cy="0" r="105" fill="#FFA65B" stroke="black" stroke-width="2"/>
+        <circle cx="0" cy="5" r="20" fill="#62b1fb" stroke="black" stroke-width="2"/>
+        <circle cx="0" cy="0" r="70" fill="#62b1fb" stroke="black" stroke-width="2"/>
+        <circle cx="0" cy="5" r="25" fill="#FFA65B" stroke="black" stroke-width="2"/>
+
+        <!-- Text with shadow filter -->
+        <text x="120" y="8"
+              font-family="monospace"
+              font-size="80"
+              fill="white"
+              stroke="#000000"
+              stroke-width="1.8"
+              text-anchor="start"
+              dominant-baseline="middle"
+              filter="url(#shadow)">ReadFile</text>
+    </g>
+
+    <!-- Grid lines -->
+    <g style="mix-blend-mode:overlay" opacity="0.1">
+        <path d="M0 75H1050" stroke="black" stroke-dasharray="4 4"/>
+        <path d="M0 123H1050" stroke="black" stroke-dasharray="4 4"/>
+        <path d="M359 0L359 480" stroke="black" stroke-dasharray="4 4"/>
+        <path d="M407 0L407 480" stroke="black" stroke-dasharray="4 4"/>
+        <path d="M692 0L692 480" stroke="black" stroke-dasharray="4 4"/>
+        <path d="M525 0L525 480" stroke="url(#paint9_linear_2862_278)"/>
+        <path d="M644 0L644 480" stroke="black" stroke-dasharray="4 4"/>
+        <path d="M0 407H1050" stroke="black" stroke-dasharray="4 4"/>
+        <path d="M0 359H1050" stroke="black" stroke-dasharray="4 4"/>
+        <path d="M0 240H1050" stroke="url(#paint10_linear_2862_278)"/>
+        <path d="M767 -1L284 482" stroke="url(#paint11_linear_2862_278)"/>
+        <path d="M767 482L284 -1" stroke="url(#paint12_linear_2862_278)"/>
+    </g>
+
+    <!-- Decorative circles with original opacity -->
+    <g style="mix-blend-mode:overlay" opacity="0.05">
+        <circle cx="690" cy="240" r="200" stroke="black"/>
+    </g>
+    <g style="mix-blend-mode:overlay" opacity="0.05">
+        <circle cx="505" cy="240" r="150" stroke="black"/>
+    </g>
+
+    <defs>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feOffset in="SourceAlpha" dx="2" dy="2" result="offsetblur"/>
+            <feGaussianBlur in="offsetblur" stdDeviation="4" result="blur"/>
+            <feFlood flood-color="#62b1fb" flood-opacity="0.6"/>
+            <feComposite in2="blur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <!-- Linear gradients -->
+        <linearGradient id="paint9_linear_2862_278" x1="525" y1="0" x2="525" y2="480" gradientUnits="userSpaceOnUse">
+            <stop stop-opacity="0"/>
+            <stop offset="0.0001" stop-opacity="0.3"/>
+            <stop offset="0.333333"/>
+            <stop offset="0.666667"/>
+            <stop offset="1" stop-opacity="0.3"/>
+        </linearGradient>
+        <linearGradient id="paint10_linear_2862_278" x1="0" y1="240" x2="1050" y2="240" gradientUnits="userSpaceOnUse">
+            <stop stop-opacity="0.1"/>
+            <stop offset="0.5"/>
+            <stop offset="1" stop-opacity="0.1"/>
+        </linearGradient>
+        <linearGradient id="paint11_linear_2862_278" x1="767" y1="-1" x2="284" y2="482" gradientUnits="userSpaceOnUse">
+            <stop stop-opacity="0.1"/>
+            <stop offset="0.5"/>
+            <stop offset="1" stop-opacity="0.1"/>
+        </linearGradient>
+        <linearGradient id="paint12_linear_2862_278" x1="767" y1="482" x2="284" y2="-1" gradientUnits="userSpaceOnUse">
+            <stop stop-opacity="0.1"/>
+            <stop offset="0.5"/>
+            <stop offset="1" stop-opacity="0.1"/>
+        </linearGradient>
+    </defs>
+</svg>

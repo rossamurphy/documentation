@@ -1,29 +1,29 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "ReadFile Docs",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/ReadFile.svg",
+    "light": "/logo/ReadFile.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#519FFA",
+    "light": "#FFA65B",
+    "dark": "#3978DC",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#519FFA",
+      "to": "#3978DC"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@readfile.io"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://readfile.io/dashboard"
   },
   "tabs": [
     {
@@ -33,28 +33,23 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
+      "name": "Dashboard",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://readfile.io/dashboard"
+    },
+    {
+      "name": "Buy Credits",
+      "icon": "money-bill",
+      "url": "https://readfile.io/pricing"
     }
   ],
+  "versions" : ["1.0.0", "1.0.1"],
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "quickstart"
       ]
     },
     {
@@ -71,15 +66,36 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/introduction"
+        "api-reference/introduction",
+        "changelog/changelog"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Pricing",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/v1/0/0/pricing"
+      ],
+        "version": "1.0.0"
+    },
+    {
+      "group": "Pricing",
+      "pages": [
+        "api-reference/v1/0/1/pricing"
+      ],
+        "version": "1.0.1"
+    },
+    {
+      "group": "Endpoints",
+      "version": "1.0.0",
+      "pages": [
+        "api-reference/v1/0/0/endpoint/read"
+      ]
+    },
+    {
+      "group": "Endpoints",
+      "version": "1.0.1",
+      "pages": [
+        "api-reference/v1/0/1/endpoint/read"
       ]
     }
   ],
