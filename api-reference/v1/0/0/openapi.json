@@ -32,15 +32,10 @@
                   "file": {
                     "type": "string",
                     "format": "binary",
-                    "description": "The file to be processed",
+                    "description": "The file to be processed"
                   }
                 },
                 "required": ["file"]
-              },
-              "encoding": {
-                "file": {
-                  "contentType": "application/pdf, image/png, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                }
               }
             }
           }
