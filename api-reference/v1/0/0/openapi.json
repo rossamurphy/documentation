@@ -22,6 +22,29 @@
     "/file/read": {
       "post": {
         "description": "Returns the clean text of the file.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to be processed",
+                  }
+                },
+                "required": ["file"]
+              },
+              "encoding": {
+                "file": {
+                  "contentType": "application/pdf, image/png, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Text response",
