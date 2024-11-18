@@ -17,7 +17,7 @@
               stroke-width="1.8"
               text-anchor="start"
               dominant-baseline="middle"
-              filter="url(#shadow)">ReadFile</text>
+              filter="">ReadFile</text>
     </g>
 
     <!-- Grid lines -->
