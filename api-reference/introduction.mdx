@@ -1,33 +1,22 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'How to use the ReadFile API service'
 ---
-
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
 
 ## Welcome
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+ReadFile functions entirely via requests. There's absolutely zero dependencies. You can use it in the browser, on the server, or in any programming language you like.
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+If you have an enterprise plan, we deploy a Docker image in your environment, and expose it internally in your VPC, so again, it's as simple as making a request to an endpoint. 
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API endpoints are authenticated with API keys. You can get one [here](https://readfile.io/dashboard). New API keys come with 300 free credits for you to try out our service. If you love our product, you can easily top up your credits [here](https://readfile.io/pricing).
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+To make an authenticated API request, simply pass the API key in the headers, for example:
+
+```zsh
+curl -X POST https://api.readfile.io/v1.0.0/file/read \
+-H "X-API-KEY: <YOUR_API_KEY_HERE>" \
+-F "file=@<YOUR_FILE_PATH_HERE>"
 ```

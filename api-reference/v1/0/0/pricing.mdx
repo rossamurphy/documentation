@@ -1,33 +1,22 @@
 ---
 title: 'How it works'
-description: 'Example section for showcasing API endpoints'
+description: 'How you get charged for using ReadFile.'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## We charge per page
 
-## Welcome
+We count the number of pages in each document you post to our API, and we bill you based on that number. We will charge you a set amount of credits per page we process. 
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+We calculate the number of credits you need, to successfully fulfil your request, before we start processing. If you don't have enough credits, we'll let you know, and, we'll tell you how many more credits you need to proceed.
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+It's really easy to check how many credits you have, and to add more, [here](https://readfile.io/dashboard).
 
-## Authentication
+## Better models cost more 
+
+You can choose the model you want to process your file, by using [query parameters](https://apidog.com/articles/http-request-parameters-guide/).
+
+
+## It's cheaper to buy in bulk 
 
 All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
