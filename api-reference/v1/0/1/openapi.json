@@ -22,6 +22,19 @@
     "/file/read": {
       "post": {
         "description": "Returns the clean text of the file.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "strategy",
+            "schema": {
+              "type": "string",
+              "enum": ["default", "ocr", "ai"],
+              "default": "default"
+            },
+            "required": false,
+            "description": "The processing strategy to use for text extraction. If not provided, defaults to 'default' strategy. Use 'ocr' for image-based documents or 'ai' for AI-enhanced processing."
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
