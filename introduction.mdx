@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: 'Convert documents into text, without the faff.'
+description: 'State of the art data extraction for LLMs'
 ---
 
 <img
@@ -15,7 +15,7 @@ description: 'Convert documents into text, without the faff.'
 />
 
 ## What does ReadFile do? 
-We convert all of your ugly looking documents into clean, easy to use text. 
+We extract data from documents, to be consumed by large language models. 
 
 ## Why? 
 
@@ -27,11 +27,11 @@ Most services masquerade as "easy to use", but, they then say crazy things like:
 - "just deploy it yourself, somewhere, serverless I guess!"
 - "what's it written in? oh yeah, Python, because it was easy to write it that way. Does it consume sh*t tons more RAM than it needs to, and struggle with meek-A-F levels of concurrency? Yeah. Yeah it does. But hey, you're deploying it, so, that's not our problem!"
 
-And this... just sounds kinda, not easy? I mean, also not hard, it's not really rocket science to do this stuff, but it sure isn't "fun", or "easy", or, something you should really have to bother doing.
+And this... just sounds kinda, not fun? 
 
-So, we set up ReadFile. You _literally just post files to an endpoint, and get text back_. It is _that_ simple. And, because it's accessible via a cURL request, that means you can use it *anywhere*. Use it in *any* programming language, in any runtime, on the server, in the browser, while skateboarding, on the john, wherever. 
+So, we set up ReadFile. With ReadFile, you can just post files to an endpoint, and get nice things back, like, your document, but formatted as HTML, Markdown, Text, and semantic chunks. It is _that_ simple. And, because it's accessible via a cURL request, that means you can use it *anywhere*. Use it in *any* programming language, in any runtime, on the server, in the browser, while skateboarding, on the john, wherever. 
 
-Oh and it's all written in Go and C. So it's blazingly fast. So, if you do want to pull our docker image and deploy it (you can process 1,500 pages per minute, on half a CPU, with 512MB of RAM).
+Oh and it's almost entirely written in Go, and Rust. So it's lightweight, and fast. So, if you do want to pull our docker image and deploy it (you can process 1,500 pages per minute, on half a CPU, with 512MB of RAM).
 
 ## Setting up
 
@@ -50,7 +50,7 @@ You can start using ReadFile in production in under 60 seconds. Seriously. Time 
     icon="image"
     href="https://readfile.io/playground"
   >
-    Play around with it first in the playground.
+    See what it can do first in the playground.
   </Card>
 </CardGroup>
 
@@ -64,9 +64,9 @@ You can start using ReadFile in production in under 60 seconds. Seriously. Time 
 
 ### Google Document AI?
 
-- You can't "just use" any Google service. You need set up a GCP account. Then set up a project. Then set up a "role". Then grant the "role" the necessary (cryptically named) "permissions". Then download a credentials.json file. Then authenticate with the gcloud cli. Oh you don't have the gcloud cli? You better install that too. Oh did it install in the wrong folder? Yeah. It always does. OK, so now you have it finally set up and ready to use? OK, well, in order to use it you need to also set up GCS (Google's S3) to store the output of the operations. Yeah, you're going to have to pay for that too...
+- You can't "just use" any Google service. You need set up a GCP account. Then set up a project. Then set up a "role". Then grant the "role" the necessary (cryptically named) "permissions". Then download a credentials.json file. Then authenticate with the gcloud cli. Oh you don't have the gcloud cli? You better install that too. OK, so now you have it finally set up and ready to use? OK, well, in order to use it you need to also set up GCS (Google's S3) to store the output of the operations. Yeah, you're going to have to pay for that too...
 - At time of writing, you can only process 50 word documents concurrently.
-- You are better off asking our Lord and Saviour Jesus Christ for help if something goes wrong, than Google support (we used to pay them $5k a month.. and we had a 4-day support response SLA).
+- I hope you derive some massochistic satisfaction from getting no support when things go wrong. (We literally used to pay them $5k a month.. and we had a 4-day support response SLA).
 
 <img
   style={{ borderRadius: '0.5rem',   margin: "auto"}}
@@ -74,6 +74,11 @@ You can start using ReadFile in production in under 60 seconds. Seriously. Time 
 />
 
 
+### Reducto AI
+
+- Holy good sweet baby Jesus Mary and Joseph have you seen those prices?
+
 ### Amazon Textract
 
-- Decent choice, definitely better _performance_ than Google Document AI, but, it still suffers the exact same hassle and faff to set up and get working reliably.
+- Decent choice, definitely better _performance_ than Google Document AI, but, it still suffers the exact same hassle to set up and get working reliably.
+
