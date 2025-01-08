@@ -1,0 +1,440 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ReadFile Documentation",
+    "description": "This is the API documentation for the ReadFile API",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://api.readfile.io/"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/v1.0.1/file/read": {
+      "post": {
+        "description": "Returns the clean text of the file.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "strategy",
+            "schema": {
+              "type": "string",
+              "enum": ["default", "vision", "sota"],
+              "default": "default"
+            },
+            "required": false,
+            "description": "The processing strategy to use for text extraction. For more, see [here](/api-reference/v1/0/1/strategies)"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to be processed. Can be any of [.pdf, .docx, .png]."
+                  }
+                },
+                "required": ["file"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limit Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0.1/file/download/{job_id}": {
+      "get": {
+        "description": "Downloads the output of a completed job.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the processing job"
+          },
+          {
+            "in": "query",
+            "name": "outputFormat",
+            "schema": {
+              "type": "string",
+              "enum": ["html", "text", "markdown","chunks"],
+              "default": "text"
+            },
+            "required": true,
+            "description": "The format of the extraction you want to download. N.B. Only 'text' is supported for 'default' and 'vision' strategies."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the extracted text",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "description": "A string response, for example if you select 'html', 'markdown', or 'text' as an 'outputFormat', the response will just be a string."
+                    },
+                    {
+                      "type": "object",
+                      "description": "A JSON object response, for example if you select 'chunks' as an 'outputFormat', the response will be a structured object containing chunks, respectively made up [text, label, location, parent, children, headings, origin]."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Job not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limit Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0.1/file/status/{job_id}": {
+      "get": {
+        "description": "Gets the current status of a processing job.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the processing job"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved job status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Job not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limit Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0.1/file/jobs": {
+      "get": {
+        "description": "Returns a list of the processing jobs you have submitted to ReadFile.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            },
+            "required": true,
+            "description": "The number of jobs to return, sorted in timestamp order."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved jobs list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobsList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate Limit Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AcceptedResponse": {
+        "required": [
+          "job_id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "description": "The identifier of your task on ReadFile. You can use this to track the status, and download the results.",
+            "type": "string"
+          },
+          "status": {
+            "description": "The current state of your task on ReadFile. This will read 'processing' once the task is being worked on.",
+            "type": "string"
+          }
+        }
+      },
+      "JobStatus": {
+        "type": "object",
+        "required": [
+          "job_id",
+          "status"
+        ],
+        "properties": {
+          "strategy": {
+            "description": "The processing strategy used for the extraction.",
+            "type": "string"
+          },
+          "job_id": {
+            "description": "The identifier of your task on ReadFile.",
+            "type": "string"
+          },
+          "filename": {
+            "description": "The name of the file processed.",
+            "type": "string"
+          },
+          "status": {
+            "description": "The current state of your task on ReadFile.",
+            "type": "string"
+          },
+          "timestamp": {
+            "description": "The time the job was initiated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "elapsed_time_ms": {
+            "description": "The length of time the job took to complete, in milliseconds",
+            "type": "integer"
+          }
+        }
+      },
+      "JobsList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/JobStatus"
+        }
+      },
+      "Error": {
+        "required": [
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY"
+      }
+    }
+  }
+}

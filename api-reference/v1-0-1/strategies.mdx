@@ -1,0 +1,35 @@
+---
+title: 'Overview'
+description: 'What the different processing strategies do'
+---
+
+## Default
+- Choose this strategy by adding the query parameter "default", i.e. `?strategy=default` at the end of the URL (or, by simply leaving it blank).
+- The _fastest and cheapest_ strategy.
+- Extracts _text_ from files, and makes no attempt to extract anything more.
+- This means it's great for long contracts full of words, for example, but not a great option for documents which are full of tables (and where you need the information contained in the tables).
+- Outputs text (i.e. you should expect to receive a string back).
+- Supports PDF and Word documents.
+
+**Cost: 1 credit per page.**
+
+### Vision
+
+- Choose this strategy by adding the query parameter "vision", i.e. `?strategy=vision` at the end of the URL.
+- Can read everything from files, i.e. tables, images, watermarks, text, etc.
+- Outputs text (i.e. you should expect to receive a string back).
+- This is a great option for documents which contain tables, and documents where the structure of the information on the page is important for human-level understanding (for example: invoices, receipts, and bills-of-lading).
+- Supports PDF, Word documents, and JPEG images.
+
+**Cost: 2 credits per page.**
+
+### SOTA
+
+- Choose this strategy by adding the query parameter "sota", i.e. `?strategy=sota` at the end of the URL.
+- Can read everything from files, i.e. tables, images, watermarks, text, etc.
+- Outputs text, HTML, Markdown, JSON, and Chunks. All formats are computed at runtime, and you can choose which one you access later.
+- This is a great option for documents which contain tables, and documents where the structure of the information on the page is important for human-level understanding (for example: invoices, receipts, and bills-of-lading).
+- Supports PDF, Word documents, and JPEG images.
+
+**Cost: 4 credits per page.**
+

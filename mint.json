@@ -26,84 +26,43 @@
     "url": "https://readfile.io/dashboard"
   },
   "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
   ],
   "anchors": [
-    {
-      "name": "Dashboard",
-      "icon": "newspaper",
-      "url": "https://readfile.io/dashboard"
-    },
-    {
-      "name": "Get Started",
-      "icon": "money-bill",
-      "url": "https://readfile.io/pricing"
-    }
   ],
-  "versions" : ["1.0.1", "1.0.0"],
+  "versions" : ["1.0.1"],
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "quickstart"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Changelog",
-      "pages": [
-        "changelog/changelog"
+        "introduction"
       ]
     },
     {
       "group": "Pricing",
       "pages": [
-        "api-reference/v1/0/0/pricing"
-      ],
-        "version": "1.0.0"
-    },
-    {
-      "group": "Pricing",
-      "pages": [
-        "api-reference/v1/0/1/pricing"
+        "api-reference/v1-0-1/pricing"
       ],
         "version": "1.0.1"
     },
     {
       "group": "Strategies",
       "pages": [
-        "api-reference/v1/0/1/strategies"
+        "api-reference/v1-0-1/strategies"
       ],
       "version": "1.0.1"
     },
     {
       "group": "Endpoints",
-      "version": "1.0.0",
-      "pages": [
-        "api-reference/v1/0/0/endpoint/read"
-      ]
-    },
-    {
-      "group": "Endpoints",
       "version": "1.0.1",
       "pages": [
-        "api-reference/v1/0/1/endpoint/read"
+        "api-reference/v1-0-1/endpoint/read",
+        "api-reference/v1-0-1/endpoint/jobs",
+        "api-reference/v1-0-1/endpoint/download",
+        "api-reference/v1-0-1/endpoint/status"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
   },
   "api": {
     "playground": {
