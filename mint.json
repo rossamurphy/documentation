@@ -79,6 +79,13 @@
         "version": "1.0.1"
     },
     {
+      "group": "Strategies",
+      "pages": [
+        "api-reference/v1/0/1/strategies"
+      ],
+      "version": "1.0.1"
+    },
+    {
       "group": "Endpoints",
       "version": "1.0.0",
       "pages": [

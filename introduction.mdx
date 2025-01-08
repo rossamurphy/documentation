@@ -19,19 +19,13 @@ We extract data from documents, to be consumed by large language models.
 
 ## Why? 
 
-We set up ReadFile because we believe it really shouldn't be so frustrating to just get text out of a file. 
+We set up ReadFile because we believe it really shouldn't be so frustrating to get text out of a file. 
 
-Most services masquerade as "easy to use", but, they then say crazy things like:
+With ReadFile, you can just post files to an endpoint, and get nice things back, like, your document, but formatted as HTML, Markdown, Text, and semantic chunks. 
 
-- "just pull our docker image bro!"
-- "just deploy it yourself, somewhere, serverless I guess!"
-- "what's it written in? oh yeah, Python, because it was easy to write it that way. Does it consume sh*t tons more RAM than it needs to, and struggle with meek-A-F levels of concurrency? Yeah. Yeah it does. But hey, you're deploying it, so, that's not our problem!"
+Because the interface to ReadFile is HTTP requests, this means you can use it *anywhere*. Use it in *any* programming language, in any runtime, on the server, in the browser, wherever. 
 
-And this... just sounds kinda, not fun? 
-
-So, we set up ReadFile. With ReadFile, you can just post files to an endpoint, and get nice things back, like, your document, but formatted as HTML, Markdown, Text, and semantic chunks. It is _that_ simple. And, because it's accessible via a cURL request, that means you can use it *anywhere*. Use it in *any* programming language, in any runtime, on the server, in the browser, while skateboarding, on the john, wherever. 
-
-Oh and it's almost entirely written in Go, and Rust. So it's lightweight, and fast. So, if you do want to pull our docker image and deploy it (you can process 1,500 pages per minute, on half a CPU, with 512MB of RAM).
+Oh and it's almost entirely written in Go, and Rust. So it's really lightweight, and fast. 
 
 ## Setting up
 
