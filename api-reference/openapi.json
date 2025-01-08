@@ -21,7 +21,7 @@
   "paths": {
     "/v1.0.1/file/read": {
       "post": {
-        "description": "Returns the clean text of the file.",
+        "description": "Submits a file to ReadFile for processing.",
         "parameters": [
           {
             "in": "query",
@@ -372,7 +372,7 @@
           }
         }
       },
-      "JobStatus": {
+      "Job": {
         "type": "object",
         "required": [
           "job_id",
@@ -387,7 +387,7 @@
             "description": "The identifier of your task on ReadFile.",
             "type": "string"
           },
-          "filename": {
+          "file_name": {
             "description": "The name of the file processed.",
             "type": "string"
           },
@@ -406,10 +406,44 @@
           }
         }
       },
+      "JobStatus": {
+        "type": "object",
+        "required": [
+          "job_id",
+          "status"
+        ],
+        "properties": {
+          "strategy": {
+            "description": "The processing strategy used for the extraction.",
+            "type": "string"
+          },
+          "job_id": {
+            "description": "The identifier of your task on ReadFile.",
+            "type": "string"
+          },
+          "file_name": {
+            "description": "The name of the file processed.",
+            "type": "string"
+          },
+          "status": {
+            "description": "The current state of your task on ReadFile.",
+            "type": "string"
+          },
+          "timestamp": {
+            "description": "The time the job was initiated.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "result_url": {
+            "description": "The url you can hit to retrieve the output of the extraction job.",
+            "type": "string"
+          }
+        }
+      },
       "JobsList": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/JobStatus"
+          "$ref": "#/components/schemas/Job"
         }
       },
       "Error": {
