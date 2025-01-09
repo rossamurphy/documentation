@@ -21,7 +21,7 @@
   "paths": {
     "/v1.0.1/file/read": {
       "post": {
-        "description": "Submits a file to ReadFile for processing.",
+        "description": "Submits a file to ReadFile for processing. You'll get a 'job_id' back, which you can use to track the status of your extraction job.",
         "parameters": [
           {
             "in": "query",
@@ -109,7 +109,7 @@
     },
     "/v1.0.1/file/download/{job_id}": {
       "get": {
-        "description": "Downloads the output of a completed job.",
+        "description": "Downloads the output of a completed job. If you processed your job with the 'sota' strategy, you can download any of [html, text, markdown, chunks] output formats. If you processed your file with 'vision' or 'default', you can only get text back.",
         "parameters": [
           {
             "in": "path",
