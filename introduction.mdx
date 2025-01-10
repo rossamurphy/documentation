@@ -53,16 +53,16 @@ You can start using ReadFile in production in under 60 seconds. Seriously. Time 
 
 ## How do you compare to:
 
-### Unstructured?
+### Unstructured
 
-- The "high-res" strategy (the only one that's worth using) is super slow.
+- The "high-res" strategy (the only one that's worth using) is very slow.
 - The serverless service throws errors stochastically (the same file will fail when you first try it, and somehow succeed when you try it again). It didn't seem like a service we could rely on.
 
-### Google Document AI?
+### Google Document AI
 
-- You can't "just use" any Google service. You need set up a GCP account. Then set up a project. Then set up a "role". Then grant the "role" the necessary (cryptically named) "permissions". Then download a credentials.json file. Then authenticate with the gcloud cli. Oh you don't have the gcloud cli? You better install that too. OK, so now you have it finally set up and ready to use? OK, well, in order to use it you need to also set up GCS (Google's S3) to store the output of the operations. Yeah, you're going to have to pay for that too...
+- It's very hard to "just use" any Google service. You need set up a GCP account. Then set up a project. Then set up a "role". Then grant the "role" the necessary (cryptically named) "permissions". Then download a credentials.json file. Then authenticate with the gcloud cli. Oh you don't have the gcloud cli? You better install that too. OK, so now you have it finally set up and ready to use? OK, well, in order to use it you need to also set up GCS (Google's S3) to store the output of the operations. Yeah, you're going to have to pay for that too...
 - At time of writing, you can only process 50 word documents concurrently.
-- It's useful, when using Google services, that you derive some massochistic satisfaction from getting no support when things go wrong.
+- It's useful, when using Google services, that you derive some masochistic satisfaction from getting no support when things go wrong.
 
 <img
   style={{ borderRadius: '0.5rem',   margin: "auto"}}
